@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -9,7 +8,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <title>AdminLTE 3 | Dashboard 3</title>
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
@@ -41,6 +42,7 @@ to get the desired effect
                      style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
+
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -52,32 +54,37 @@ to get the desired effect
                         <a href="#" class="d-block">Alexander Pierce</a>
                     </div>
                 </div>
+
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item has-treeview ">
+                                <a href="/AdminCategory/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Kategoriler
+
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a href="/Statistics/Index" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    KATEGORİLER
+                                    İstatistik Tablosu
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="/Heading/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    BAŞLIKLAR
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    YAZARLAR
+                                    Başlıklar
                                 </p>
                             </a>
                         </li>
@@ -85,7 +92,7 @@ to get the desired effect
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    GRAFİKLER
+                                    Grafikler
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -93,44 +100,38 @@ to get the desired effect
                                 <li class="nav-item">
                                     <a href="pages/charts/chartjs.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>GRAFİK 1</p>
+                                        <p>Grafik 1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="pages/charts/flot.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>GRAFİK 2</p>
+                                        <p>Grafik 2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="pages/charts/inline.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>GRAFİK 3</p>
+                                        <p>Grafik 3</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/About/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
                                 <p>
-                                    HAKKIMIZDA
+                                    Hakkımızda
+
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/Contact/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
-                                    İLETİŞİM & MESAJLAR
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    YAZILAR
+                                    İletişim & Mesajlar
+
                                 </p>
                             </a>
                         </li>
@@ -138,7 +139,8 @@ to get the desired effect
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
-                                    YETKİLENDİRMELER
+                                    Yetkilendirmeler
+
                                 </p>
                             </a>
                         </li>
@@ -146,16 +148,16 @@ to get the desired effect
                             <a href="pages/gallery.html" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    GALERİ
+                                    Galeri
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/ErrorPage/Page404/" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
-                                    HATA SAYFALARI
-                                    <i class="fas fa-angle-left right"></i>
+                                    Hata Sayfaları
+                                    @*<i class="fas fa-angle-left right"></i>*@
                                 </p>
                             </a>
                         </li>
@@ -163,19 +165,25 @@ to get the desired effect
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
-                                    SİTEYE GİT
+                                    Siteye Git
                                 </p>
                             </a>
-
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-apple-alt"></i>
+                            <a href="/TalentCard/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-circle"></i>
                                 <p>
-                                    ÇIKIŞ YAP
+                                    Profil Kartım
                                 </p>
                             </a>
-
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Login/LogOut/" class="nav-link">
+                                <i class="nav-icon fas fa-apple-alt"></i>
+                                <p>
+                                    Çıkış Yap
+                                </p>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -183,8 +191,11 @@ to get the desired effect
             </div>
             <!-- /.sidebar -->
         </aside>
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- /.content-header -->
             <!-- Main content -->
             <div class="content">
                 @RenderBody()
@@ -193,15 +204,25 @@ to get the desired effect
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+        <!-- Main Footer -->
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    @*<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>*@
     <!-- Bootstrap -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="~/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+
     <!-- OPTIONAL SCRIPTS -->
     <script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
     <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
